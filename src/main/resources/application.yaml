@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: controle-catalogo-api
+
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://localhost:27017/catalogo-produto
+    repositories:
+      type: none
+
+cloud:
+    aws:
+      credentials:
+        accessKey: ${AWS_ACCESS_KEY}
+        secretKey: ${AWS_SECRET_KEY}
+      region:
+        static: sa-east-1
+      sns:
+        topic:
+          catalogo-produto: arn:aws:sns:sa-east-1:798516695977:catalog-emit
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    doc-expansion: none
+    disable-swagger-default-url: true
+  server:
+    url: http://localhost:8080
