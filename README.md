@@ -15,6 +15,7 @@ Este projeto é uma API REST desenvolvida em Java 17 com foco na gestão de cat�
 - SonarQube para análise estática e cobertura de código
 - Lombok
 - MapStruct
+- Amazon SNS (Simple Notification Service)
 
 ---
 
@@ -28,6 +29,8 @@ A API segue o padrão de **Arquitetura Hexagonal**, separando bem as responsabil
 - **Configuration**: Beans, configurações gerais
 
 Esse modelo garante testabilidade, flexibilidade e manutenção mais eficiente do código.
+
+Além disso, a API utiliza o Amazon SNS para publicar eventos de forma assíncrona, promovendo desacoplamento entre os componentes e garantindo escalabilidade e resiliência na comunicação entre serviços.
 
 ---
 
@@ -74,7 +77,6 @@ A análise de qualidade de código e cobertura é feita com SonarQube.
 ```bash
 ./mvnw clean verify sonar:sonar
 ```
-
 
 ---
 
@@ -124,3 +126,4 @@ Desenvolvido por **Gabriel Bahu**
 
 - Projeto construído com foco em boas práticas de clean code e arquitetura limpa.
 - Adaptado de um desafio técnico originalmente proposto em Node.js.
+- Integração com Amazon SNS para publicação de eventos, reforçando a capacidade da API de operar em ambientes distribuídos na nuvem.
